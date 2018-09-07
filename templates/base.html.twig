@@ -2,11 +2,27 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        {% block menu%}
+            <menu>
+                <ul>
+                    <li><a href="Accueil"></a> <h1> {{ titreAccueil }} </h1></li>
+                    <li><a href="Blog"></a> <h1> {{ titreBlog }}</h1></li>
+                    <li><a href="Contact"></a>
+                        {{ form_start(form) }}
+                            {{ form_widget(form) }}
+                        {{ form_end(form) }}
+                    </li>
+                </ul>
+            </menu>
+        {% endblock %}
+
         {% block body %}{% endblock %}
+
         {% block javascripts %}{% endblock %}
     </body>
 </html>
