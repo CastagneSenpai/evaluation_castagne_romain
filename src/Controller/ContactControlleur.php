@@ -2,11 +2,15 @@
 
 namespace App\Controller;
 
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Entity\Contact;
+
 
 class ContactControlleur extends AbstractController
 {
@@ -20,12 +24,12 @@ class ContactControlleur extends AbstractController
         //Déclaration d'un nouveau contact
         $contact= new Contact();
 
-        $repository = $this->getDoctrine()->getRepository($contact::class);
-        contacts= $repository->findAll();
+        $repository = $this->getDoctrine()->getRepository(Contact::class);
+        $contacts= $repository->findAll();
 
 
         $form = $this->createFormBuilder($contact)
-            ->add('name', TextType::class)
+            ->add('nom', TextType::class)
             ->getForm();
 
         $form->handleRequest($request);

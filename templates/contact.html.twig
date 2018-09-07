@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    {% for product in products %}
+    {% for contact in contacts %}
         <h2>{{ contact.id }}</h2>
         <h2>{{ contact.nom }}</h2>
     {% endfor %}
@@ -11,6 +11,6 @@
     <br><br>
     {{ form_start(form) }}
     {{ form_widget(form) }}
-    {{ form_end(form)
+    {{ form_end(form) }}
 
 {% endblock %}
