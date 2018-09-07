@@ -50,7 +50,7 @@ class ContactControlleur extends AbstractController
         }
 
         return $this->render('contact.html.twig', array(
-            'form' => $form->createView(),'contact'=>$contact
+            'form' => $form->createView(),'contacts'=>$contacts
         ));
 
 
